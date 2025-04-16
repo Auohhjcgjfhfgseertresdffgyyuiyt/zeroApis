@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // Dynamic API routes
-const routes = ["igdl", "fbdl", "ttdl", "githubstalk", "searchgroups", "llama-3.3-70b-versatile"];
+const routes = ["igdl", "fbdl", "ttdl", "githubstalk", "searchgroups", "llama-3.3-70b-versatile", "hentavid"];
 routes.forEach((route) => {
     try {
         app.use(`/api/${route}`, require(`./api/${route}`));
