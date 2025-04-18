@@ -146,3 +146,18 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, 300);
 });
+async function tryAnichin() {
+  const type = document.getElementById("anichin-type").value;
+  const query = document.getElementById("anichin-query").value;
+  let url = `/api/anichin?type=${encodeURIComponent(type)}`;
+  if (query) url += `&query=${encodeURIComponent(query)}`;
+
+  document.getElementById("anichin-result").textContent = "Loading...";
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    document.getElementById("anichin-result").textContent = JSON.stringify(data, null, 2);
+  } catch (err) {
+    document.getElementById("anichin-result").textContent = "Error: " + err.message;
+  }
+}
