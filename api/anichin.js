@@ -6,11 +6,21 @@ script rest api simpel bisa pm (bisa demo api)
 wa.me/6282285367346
 **/
 
-import express from "express";
-import axios from "axios";
-import * as cheerio from "cheerio";
+const express = require("express");
+const axios = require("axios");
+const cheerio = require("cheerio");
 
 const router = express.Router();
+
+// Simulasi objek Anichin, kamu harus pastikan ini diimplementasikan sesuai modulmu
+const Anichin = {
+  Latest: async () => { /* ... */ },
+  Detail: async (query) => { /* ... */ },
+  Episode: async (query) => { /* ... */ },
+  Download: async (query) => { /* ... */ },
+  Search: async (query) => { /* ... */ },
+  Popular: async () => { /* ... */ }
+};
 
 router.get("/api/anichin", async (req, res) => {
   const { type, query } = req.query;
@@ -74,4 +84,4 @@ router.params = [
   { name: "query", type: "string", required: false, description: "Data tambahan untuk tipe tertentu (misal: url atau keyword)" }
 ];
 
-export default router;
+module.exports = router;
